@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  last_name: MyText
+  email: MyText
+  password_digest: MyText
+  image: MyText
+  address: MyText
+  longitude: 1.5
+  latitude: 1.5
+  admin: false
+  user_active: false
+  user_type: 1
+  police_check: MyText
+  national_id: MyText
+  covid_safe_certifcate: MyText
+
+two:
+  name: MyText
+  last_name: MyText
+  email: MyText
+  password_digest: MyText
+  image: MyText
+  address: MyText
+  longitude: 1.5
+  latitude: 1.5
+  admin: false
+  user_active: false
+  user_type: 1
+  police_check: MyText
+  national_id: MyText
+  covid_safe_certifcate: MyText

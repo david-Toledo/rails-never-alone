@@ -56,3 +56,11 @@ end
   gem 'cloudinary'
 
   gem 'pry-rails'
+
+  gem 'enumerize'
+
+  gem 'enumerate_it'
+
+  gem 'bootstrap', '~> 5.0.0.beta1'
+
+  gem 'jquery-rails'

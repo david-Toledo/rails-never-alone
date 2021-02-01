@@ -1,0 +1,98 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :last_name %>
+    <%= form.text_area :last_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_area :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_area :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :admin %>
+    <%= form.select :admin, [['Yes','true'],['No','false']] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_active %>
+    <%= form.select :user_active, [['Yes','true'],['No','false']] %>
+  </div>
+
+  <!-- <div class="field">
+    <%= form.label :user_type %>
+    <%= form.number_field :user_type %>
+  </div> -->
+  <!-- replaced with the enum/select below -->
+
+  <div class="field">
+    <%= form.label :user_type %>
+    <%= form.select :user_type, User.user_types.keys %>
+  </div>
+
+  <div class="field">
+    <%= form.label :police_check %>
+    <%= form.text_area :police_check %>
+  </div>
+
+  <div class="field">
+    <%= form.label :national_id %>
+    <%= form.text_area :national_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :covid_safe_certifcate %>
+    <%= form.text_area :covid_safe_certifcate %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
