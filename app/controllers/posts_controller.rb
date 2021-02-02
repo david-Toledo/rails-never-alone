@@ -1,12 +1,20 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-  
+
   # before_action :authenticate_user
 
   # GET /posts or /posts.json
   def index
     @posts = Post.all
-    render json: @posts, include: ['responses', 'user']
+    render json: @posts,
+    methods: [:created_at_formatted],
+    include: {
+      responses:{},
+      user:{only:[:id, :name, :address, :longitude, :latitude]}
+    }
+      # include:['responses']
+      # ['responses', 'user']
+
   end
 
   # GET /posts/1 or /posts/1.json
