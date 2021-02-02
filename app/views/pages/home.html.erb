@@ -1,0 +1,25 @@
+<h1>Pages#home</h1>
+
+
+<% if @current_user %>
+
+  logged in
+
+<% else %>
+<div class="jumbotron">
+<h2>Looking for some company!</h2>
+<p class="lead">
+  You will enjoy this place! Log in or Sign up!
+</p>
+</div>
+<% end %>
+
+<div class="jumbotron">
+<h3>
+  Go to:
+  <%= link_to "users", users_path %>
+  <%= link_to "posts", posts_path %>
+  <%= link_to "responses", responses_path %>
+
+</h3>
+</div>

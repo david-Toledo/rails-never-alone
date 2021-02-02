@@ -23,6 +23,13 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    if params[:user][:image].present?
+        response = Cloudinary::Uploader.upload params[:user][:image]
+        p response
+        @user.image = response["public_id"]
+    end
+      # @user.save
+
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: "User was successfully created." }
