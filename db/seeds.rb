@@ -10,13 +10,13 @@ puts "creating users....."
 
 User.destroy_all
 
-user1 = User.create! name:'David', email:'david@ga.co', password:'chicken', address:'1 hannan street Maroubra', admin:true, user_active:true, user_type:1
+user1 = User.create! name:'David', email:'david@ga.co', password:'chicken', address:'1 hannan street Maroubra', admin:true, user_active:true, user_type:1, about:"friendly and outgoing"
 
-user2 = User.create! name:'John', email:'john@ga.co', password:'chicken', address:'20 hannan street Maroubra', admin:false, user_active:true, user_type:0
+user2 = User.create! name:'John', email:'john@ga.co', password:'chicken', address:'20 hannan street Maroubra', admin:false, user_active:true, user_type:0, about:"I like coffee and walking on the park"
 
-user3 = User.create! name:'Kyle', email:'kyle@ga.co', password:'chicken', address:'40 hannan street Maroubra', admin:false, user_active:true, user_type:1
+user3 = User.create! name:'Kyle', email:'kyle@ga.co', password:'chicken', address:'40 hannan street Maroubra', admin:false, user_active:true, user_type:1, about:"I enjoy reading sci-fi books"
 
-user4 = User.create! name:'Stacey', email:'stacey@ga.co', password:'chicken', address:'60 hannan street Maroubra', admin:false, user_active:false, user_type:0
+user4 = User.create! name:'Stacey', email:'stacey@ga.co', password:'chicken', address:'60 hannan street Maroubra', admin:false, user_active:false, user_type:0, about:"I like horror movies and love popcorn"
 
 puts "created users: #{User.count}"
 

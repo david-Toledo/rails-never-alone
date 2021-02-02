@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     methods: [:created_at_formatted],
     include: {
       responses:{},
-      user:{only:[:id, :name, :address, :longitude, :latitude]}
+      user:{only:[:id, :name, :about, :address, :longitude, :latitude]}
     }
       # include:['responses']
       # ['responses', 'user']
