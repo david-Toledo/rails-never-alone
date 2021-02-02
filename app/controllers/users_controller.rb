@@ -1,9 +1,23 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
+  # before_action :authenticate_user
+
+  def current
+    render json: current_user
+  end
   # GET /users or /users.json
+  # def index
+  #   @users = User.all
+  # end
+
+  # geocode
   def index
-    @users = User.all
+    if params[:search].present?
+      @users = User.near(params[:search], 50, :order => :distance)
+    else
+      @users = User.all
+    end
   end
 
   # GET /users/1 or /users/1.json
@@ -53,6 +67,10 @@ class UsersController < ApplicationController
       end
     end
   end
+
+
+
+
 
   # DELETE /users/1 or /users/1.json
   def destroy

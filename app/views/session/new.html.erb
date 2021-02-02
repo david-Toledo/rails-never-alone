@@ -1,6 +1,4 @@
-<h2>Login</h2>
-
-<!-- print out an error message, if the session controller set one -->
+<h2> Login </h2>
 
 <% if flash[:error] %>
 <br>
@@ -11,7 +9,6 @@
 <br>
 <% end %>
 
-<!-- we can also use form_with for generic forms, ie: forms not connected to a model - to do this we user url, someurl instead of model -->
 
 <%= form_with url: login_path, local: true do |f| %>
 
@@ -25,6 +22,6 @@
 
 
 
-  <%= f.submit 'Login' %>
+  <%= f.submit 'Login', class:"btn btn-primary"  %>
 
 <% end %>

@@ -64,3 +64,11 @@ end
   gem 'bootstrap', '~> 5.0.0.beta1'
 
   gem 'jquery-rails'
+
+  gem 'geocoder'
+
+  gem 'rack-cors'
+
+  gem 'knock'
+
+  gem 'jwt'
