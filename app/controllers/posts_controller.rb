@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts = Post.all
+    
     render json: @posts,
     methods: [:created_at_formatted],
     include: {
