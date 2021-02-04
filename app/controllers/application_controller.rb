@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
+
+  #knock
   skip_before_action :verify_authenticity_token
   include Knock::Authenticable
+
+  # rails
   before_action :fetch_user
 
   def fetch_user

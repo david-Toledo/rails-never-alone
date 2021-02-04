@@ -25,13 +25,13 @@ puts "creating posts....."
 
 Post.destroy_all
 
-post1 = Post.create! title:'help in Zetland', body:'anyone out there?', user_id:user1.id
+post1 = Post.create! title:'help needed on Friday 14th Feb', body:'anyone who can take me to lunch?', user_id:user1.id
 
-post2 = Post.create! title:'help in Maroubra', body:'anyone free?', user_id:user2.id
+post2 = Post.create! title:'I need someone to talk to for about an hour', body:'looking for anyone this week', user_id:user2.id
 
-post3 = Post.create! title:'help in Sydney CDB', body:'anyone who can help me with some shopping?', user_id:user3.id
+post3 = Post.create! title:'help in Maroubra', body:'anyone who can help me with some shopping?', user_id:user3.id
 
-post4 = Post.create! title:'help in Maroubra', body:'anyone available for a meal?', user_id:user4.id
+post4 = Post.create! title:'lunch or dinner please', body:'anyone available for a meal?', user_id:user4.id
 
 puts "created posts: #{Post.count}"
 

@@ -1,7 +1,9 @@
 class ResponsesController < ApplicationController
   before_action :set_response, only: %i[ show edit update destroy ]
-  before_action :check_if_logged_in
+  # before_action :check_if_logged_in
   # GET /responses or /responses.json
+  before_action :authenticate_user, only: [:edit, :update]
+
   def index
     @responses = Response.all
   end

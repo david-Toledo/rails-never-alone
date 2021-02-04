@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
-  # before_action :authenticate_user
+  before_action :authenticate_user
 
   def current
     render json: current_user
@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   # def index
   #   @users = User.all
   # end
+  def search
+
+  end
 
   # geocode
   def index
