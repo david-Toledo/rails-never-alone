@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
 
-  before_action :authenticate_user
+  # before_action :authenticate_user
 
   def current
     render json: current_user
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   # geocode
   def index
     if params[:search].present?
-      @users = User.near(params[:search], 50, :order => :distance)
+      @users = User.near(params[:search], 5, :order => :distance)
     else
       @users = User.all
     end
@@ -60,6 +60,13 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
+
+    if params[:user][:image].present?
+        response = Cloudinary::Uploader.upload params[:user][:image]
+        p response
+        @user.image = response["public_id"]
+    end
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: "User was successfully updated." }

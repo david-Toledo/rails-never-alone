@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # before_action :authenticate_user
   # skip_before_action :verify_authenticity_token
-  before_action :authenticate_user, only: [:edit, :update, :create, :show]
+  before_action :authenticate_user, only: [:edit, :update, :create]
 
   def current
     render json: current_user
@@ -27,7 +27,17 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    headers['Access-Control-Allow-Origin'] = '*'
+    # headers['Access-Control-Allow-Origin'] = '*'
+    post = Post.find params[:id]
+    render json: post,
+    methods: [:created_at_formatted],
+    include: {
+      responses:{include:{user:{only:[:id, :name, :about, :address, :longitude, :latitude]}}},
+      user:{only:[:id, :name, :about, :address, :longitude, :latitude]}
+    }
+
+    # ['responses']
+
   end
 
   # GET /posts/new

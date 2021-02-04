@@ -23,12 +23,21 @@ class ResponsesController < ApplicationController
 
   # POST /responses or /responses.json
   def create
-    @response = Response.new(response_params)
+    @response = Response.new(
+      body: params[:body],
+      post_id: params[:post_id],
+      user_id:current_user.id
+    )
 
     respond_to do |format|
       if @response.save
         format.html { redirect_to @response, notice: "Response was successfully created." }
-        format.json { render :show, status: :created, location: @response }
+        format.json do
+          render json: @response,
+            include: {
+              user:{only:[:id, :name, :about, :address, :longitude, :latitude]}
+          }
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @response.errors, status: :unprocessable_entity }
